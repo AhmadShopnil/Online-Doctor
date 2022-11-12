@@ -2,7 +2,7 @@ import React from 'react';
 import appointment from '../../../assets/images/appointment.png';
 import doctorImg from '../../../assets/images/doctor-small.png'
 
-const Appointment = () => {
+const HomeAppointment = () => {
     return (
         <div className="hero my-32  " style={{ backgroundImage: `url(${appointment})` }}>
             <div className="hero-content  lg:gap-10  flex-col  md:flex-row">
@@ -17,4 +17,4 @@ const Appointment = () => {
     );
 };
 
-export default Appointment;
+export default HomeAppointment;

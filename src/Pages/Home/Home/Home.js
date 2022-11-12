@@ -3,7 +3,7 @@ import Info from '../Info/Info';
 import Banner from '../Banner/Banner';
 import Services from '../Services/Services';
 import Treatment from '../Treatment/Treatment';
-import Appointment from '../Appointment/Appointment';
+import HomeAppointment from '../HomeAppointment/HomeAppointment';
 import Testimonial from '../Testimonial/Testimonial';
 import Contact from '../Contact/Contact';
 
@@ -14,7 +14,7 @@ const Home = () => {
             <Info></Info>
             <Services></Services>
             <Treatment></Treatment>
-            <Appointment></Appointment>
+            <HomeAppointment></HomeAppointment>
             <Testimonial></Testimonial>
             <Contact></Contact>
         </div>
