@@ -2,11 +2,13 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+
+const Signup = () => {
+
     const { register, formState: { errors }, handleSubmit } = useForm();
 
 
-    const handleLogin = (data) => {
+    const handleSignup = (data) => {
         console.log(data)
     }
 
@@ -14,13 +16,21 @@ const Login = () => {
     return (
         <div className='flex justify-center items-center h-96  my-24  '>
             <div className=' p-10 card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100'>
-                <h2 className='text-3xl text-center font-bold'>Login</h2>
+                <h2 className='text-3xl text-center font-bold'>Sign Up</h2>
 
-                <form onSubmit={handleSubmit(handleLogin)}>
+                <form onSubmit={handleSubmit(handleSignup)}>
 
                     <div className="form-control w-full ">
                         <label className="label">
-                            <span className="label-text">Email?</span>
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input type="text" className="input input-bordered w-full" {...register("name", { required: 'Name is required' })} />
+                        {errors.name && <p className='text-red-600'>{errors.name?.message}</p>}
+                    </div>
+
+                    <div className="form-control w-full ">
+                        <label className="label">
+                            <span className="label-text">Email</span>
                         </label>
                         <input type="email" className="input input-bordered w-full" {...register("email", { required: 'Email is required' })} />
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
@@ -28,7 +38,7 @@ const Login = () => {
 
                     <div className="form-control w-full ">
                         <label className="label">
-                            <span className="label-text">Password?</span>
+                            <span className="label-text">Password</span>
                         </label>
                         <input type="password" className="input input-bordered w-full " {...register("password",
                             {
@@ -37,16 +47,11 @@ const Login = () => {
 
                             })} />
                         {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
-
-                        <label className="label">
-                            <span className="label-text-alt">Forgot password ?</span>
-                        </label>
-
                     </div>
-                    <input className='btn btn-accent w-full ' value='Login' type="submit" />
+                    <input className='btn btn-primary mt-4 w-full ' value='Sign Up' type="submit" />
                 </form>
 
-                <p className='mt-2'>New to doctors portal?  <Link className='text-secondary' to='/signup'>Create an account?</Link></p>
+                <p className='mt-2'>Already have an account? <Link className='text-secondary' to='/login'>Login</Link></p>
                 <div className="divider">OR</div>
                 <button className='btn btn-outline'>Continue With Google</button>
             </div>
@@ -54,4 +59,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Signup;
