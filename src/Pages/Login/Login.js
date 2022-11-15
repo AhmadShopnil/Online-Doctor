@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/Authprovider';
+
 
 const Login = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [loginError, setLoginError] = useState('')
+
+    const { signIn } = useContext(AuthContext)
 
 
     const handleLogin = (data) => {
-        console.log(data)
+        setLoginError('')
+        const email = data.email
+        const password = data.password
+        signIn(email, password)
+            .then(result => {
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.error(error)
+                setLoginError(error.message)
+
+            })
+
+
     }
 
 
@@ -15,7 +38,9 @@ const Login = () => {
         <div className='flex justify-center items-center h-96  my-24  '>
             <div className=' p-10 card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100'>
                 <h2 className='text-3xl text-center font-bold'>Login</h2>
-
+                {
+                    loginError && <p>{loginError}</p>
+                }
                 <form onSubmit={handleSubmit(handleLogin)}>
 
                     <div className="form-control w-full ">

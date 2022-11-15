@@ -12,13 +12,13 @@ const Contact = () => {
             <div className=''>
                 <h4 className='text-center font-semibold text-secondary'>Contact Us</h4>
                 <h2 className='text-3xl'>Stay connected with us</h2>
-                <from className='form-control gap-3 mx-auto mt-6'>
+                <form className='form-control gap-3 mx-auto mt-6'>
                     <input type="email" placeholder="Email Address" className="input input-bordered input-success w-full max-w-xs" />
                     <input type="text" placeholder="Subject" className="input input-bordered input-success w-full max-w-xs" />
                     <textarea className="textarea textarea-info w-full max-w-xs" placeholder="Details"></textarea>
                     <input className='mt-4 btn btn-primary bg-gradient-to-r from-secondary to-primary' type="submit" value="Submit" />
 
-                </from>
+                </form>
             </div>
         </div>
     );
