@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Authprovider';
 
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSignup = (data) => {
         // console.log(data)
@@ -30,7 +31,7 @@ const Signup = () => {
         }
         updateUser(profile)
             .then(result => {
-
+                navigate('/')
             })
             .catch(error => console.error(error))
 

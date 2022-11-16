@@ -71,7 +71,7 @@ const Navbar = () => {
                     </label>
                 </button>
 
-                {/* <p className='mx-2 font-semibold'>{name}</p> */}
+                <p className='mx-2 font-semibold'>{name}</p>
                 <Link to='/appoinment' className="btn">Appoinment</Link>
             </div>
 
